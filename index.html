@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,600;1,9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body {
+    -webkit-font-smoothing: antialiased;
+    --tm-display: 'IBM Plex Mono', ui-monospace, monospace;
+    --tm-body: 'IBM Plex Mono', ui-monospace, monospace;
+    --tm-dstyle: normal;
+    --tm-dweight: 700;
+    --tm-dtrack: -.03em;
+    --tm-dcase: uppercase;
+  }
+  a { color: #0052FF; }
+  a:hover { color: #FF2E8B; }
+  ::selection { background: #E8FF00; color: #000; }
+  @keyframes tm-pulse { 0%, 100% { opacity: 1 } 50% { opacity: .2 } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#fff; color:#000; font-family:var(--tm-body); min-height:100vh; position:relative; overflow:hidden">
+
+  <header style="display:flex; flex-direction:column; gap:14px; padding:20px 28px 16px; border-bottom:4px solid #000">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px">
+      <div style="display:flex; flex-direction:column; gap:4px">
+        <h1 style="margin:0; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); text-transform:var(--tm-dcase); font-size:clamp(24px,3.6vw,38px); line-height:.96">Thirsty Machines</h1>
+        <p style="margin:0; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:#FF2E8B">the weight of it · twelve stories</p>
+      </div>
+      <p style="margin:0; display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:6px 10px"><span style="display:inline-block; width:8px; height:8px; background:#000; animation:tm-pulse 1.8s infinite"></span>work in progress — we're still digging</p>
+    </div>
+  </header>
+
+  <div style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; padding:9px 28px; border-bottom:2px solid #000; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700">
+    <span style="display:flex; align-items:center; gap:8px"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#FF2E8B" stroke="#000" stroke-width="2.6"></circle></svg>location</span>
+    <span style="display:flex; align-items:center; gap:8px"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" fill="#0052FF" stroke="#000" stroke-width="2.6"></rect></svg>organisation</span>
+    <span style="display:flex; align-items:center; gap:8px"><svg width="18" height="18" viewBox="0 0 18 18"><polygon points="9,2 16.5,15.5 1.5,15.5" fill="#E8FF00" stroke="#000" stroke-width="2.6"></polygon></svg>publication</span>
+    <span style="display:flex; align-items:center; gap:8px"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 A7 7 0 0 0 9 16 Z" fill="#FF2E8B"></path><path d="M9 2 A7 7 0 0 1 9 16 Z" fill="#0052FF"></path><circle cx="9" cy="9" r="7" fill="none" stroke="#000" stroke-width="2.6"></circle></svg>both at once</span>
+    <span style="display:flex; align-items:center; gap:8px"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#ddd" stroke="#000" stroke-width="2.6"></circle><circle cx="9" cy="9" r="2.6" fill="#000"></circle></svg>you've read it</span>
+  </div>
+
+  <div style="overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch">
+  <div style="position:relative; min-width:880px; container-type:inline-size; font-family:var(--tm-body)">
+  <svg viewBox="0 0 1260 560" style="display:block; width:100%; height:auto; overflow:visible; user-select:none; font-family:var(--tm-body)">
+    <g fill="none" stroke-linecap="round">
+      <g data-a="mason" data-b="ypsilanti" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="140" y1="120" x2="350" y2="265" stroke="transparent" stroke-width="24"></line>
+        <line x1="140" y1="120" x2="350" y2="265" stroke="#FF2E8B" stroke-width="3"></line>
+      </g>
+      <g data-a="ypsilanti" data-b="permits" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="350" y1="265" x2="480" y2="80" stroke="transparent" stroke-width="24"></line>
+        <line x1="350" y1="265" x2="480" y2="80" stroke="#E8FF00" stroke-width="4"></line>
+      </g>
+      <g data-a="permits" data-b="roanoke" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="480" y1="80" x2="790" y2="90" stroke="transparent" stroke-width="24"></line>
+        <line x1="480" y1="80" x2="790" y2="90" stroke="#E8FF00" stroke-width="4"></line>
+      </g>
+      <g data-a="roanoke" data-b="ekurhuleni" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="790" y1="90" x2="1140" y2="140" stroke="transparent" stroke-width="24"></line>
+        <line x1="790" y1="90" x2="1140" y2="140" stroke="#FF2E8B" stroke-width="3" stroke-dasharray="5 9"></line>
+      </g>
+      <g data-a="roanoke" data-b="chilejobs" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="790" y1="90" x2="1130" y2="350" stroke="transparent" stroke-width="24"></line>
+        <line x1="790" y1="90" x2="1130" y2="350" stroke="#FF2E8B" stroke-width="3" stroke-dasharray="5 9"></line>
+      </g>
+      <g data-a="chilejobs" data-b="chilegoogle" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="1130" y1="350" x2="920" y2="250" stroke="transparent" stroke-width="24"></line>
+        <line x1="1130" y1="350" x2="920" y2="250" stroke="#FF2E8B" stroke-width="3"></line>
+      </g>
+      <g data-a="chilegoogle" data-b="queretaro" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="920" y1="250" x2="620" y2="190" stroke="transparent" stroke-width="24"></line>
+        <line x1="920" y1="250" x2="620" y2="190" stroke="#FF2E8B" stroke-width="3"></line>
+      </g>
+      <g data-a="queretaro" data-b="zeewolde" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="620" y1="190" x2="800" y2="455" stroke="transparent" stroke-width="24"></line>
+        <line x1="620" y1="190" x2="800" y2="455" stroke="#0052FF" stroke-width="3"></line>
+      </g>
+      <g data-a="zeewolde" data-b="indiana" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="800" y1="455" x2="430" y2="455" stroke="transparent" stroke-width="24"></line>
+        <line x1="800" y1="455" x2="430" y2="455" stroke="#0052FF" stroke-width="3"></line>
+      </g>
+      <g data-a="indiana" data-b="amazon" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="430" y1="455" x2="620" y2="350" stroke="transparent" stroke-width="24"></line>
+        <line x1="430" y1="455" x2="620" y2="350" stroke="#0052FF" stroke-width="3"></line>
+      </g>
+      <g data-a="amazon" data-b="chatgpt" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="620" y1="350" x2="140" y2="340" stroke="transparent" stroke-width="24"></line>
+        <line x1="620" y1="350" x2="140" y2="340" stroke="#0052FF" stroke-width="3"></line>
+      </g>
+      <g data-a="mason" data-b="permits" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="140" y1="120" x2="480" y2="80" stroke="transparent" stroke-width="24"></line>
+        <line x1="140" y1="120" x2="480" y2="80" stroke="#E8FF00" stroke-width="4"></line>
+      </g>
+      <g data-a="ypsilanti" data-b="indiana" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="350" y1="265" x2="430" y2="455" stroke="transparent" stroke-width="24"></line>
+        <line x1="350" y1="265" x2="430" y2="455" stroke="#E8FF00" stroke-width="4"></line>
+      </g>
+      <g data-a="permits" data-b="queretaro" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="480" y1="80" x2="620" y2="190" stroke="transparent" stroke-width="24"></line>
+        <line x1="480" y1="80" x2="620" y2="190" stroke="#E8FF00" stroke-width="4"></line>
+      </g>
+      <g data-a="amazon" data-b="zeewolde" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="620" y1="350" x2="800" y2="455" stroke="transparent" stroke-width="24"></line>
+        <line x1="620" y1="350" x2="800" y2="455" stroke="#0052FF" stroke-width="3"></line>
+      </g>
+      <g data-a="chilegoogle" data-b="ekurhuleni" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="920" y1="250" x2="1140" y2="140" stroke="transparent" stroke-width="24"></line>
+        <line x1="920" y1="250" x2="1140" y2="140" stroke="#FF2E8B" stroke-width="3"></line>
+      </g>
+      <g data-a="chatgpt" data-b="mason" onClick="{{ onLineClick }}" style="cursor:pointer">
+        <line x1="140" y1="340" x2="140" y2="120" stroke="transparent" stroke-width="24"></line>
+        <line x1="140" y1="340" x2="140" y2="120" stroke="#FF2E8B" stroke-width="3" stroke-dasharray="5 9"></line>
+      </g>
+    </g>
+
+    <g data-node="mason" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="140" cy="120" r="30" fill="transparent"></circle>
+      <circle cx="140" cy="120" r="20" fill="#FF2E8B" stroke="#000" stroke-width="3.4"></circle>
+      <circle data-dot cx="140" cy="120" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="ypsilanti" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="350" cy="265" r="30" fill="transparent"></circle>
+      <polygon points="350,242 371,280 329,280" fill="#E8FF00" stroke="#000" stroke-width="3.4"></polygon>
+      <circle data-dot cx="350" cy="269" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="permits" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="480" cy="80" r="30" fill="transparent"></circle>
+      <polygon points="480,57 501,95 459,95" fill="#E8FF00" stroke="#000" stroke-width="3.4"></polygon>
+      <circle data-dot cx="480" cy="84" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="roanoke" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="790" cy="90" r="30" fill="transparent"></circle>
+      <circle cx="790" cy="90" r="20" fill="#FF2E8B" stroke="#000" stroke-width="3.4"></circle>
+      <circle data-dot cx="790" cy="90" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="ekurhuleni" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="1140" cy="140" r="30" fill="transparent"></circle>
+      <circle cx="1140" cy="140" r="20" fill="#FF2E8B" stroke="#000" stroke-width="3.4" stroke-dasharray="6 5"></circle>
+      <circle data-dot cx="1140" cy="140" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="chilejobs" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="1130" cy="350" r="30" fill="transparent"></circle>
+      <circle cx="1130" cy="350" r="20" fill="#FF2E8B" stroke="#000" stroke-width="3.4"></circle>
+      <circle data-dot cx="1130" cy="350" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="chilegoogle" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="920" cy="250" r="30" fill="transparent"></circle>
+      <path d="M920 230 A20 20 0 0 0 920 270 Z" fill="#FF2E8B"></path>
+      <path d="M920 230 A20 20 0 0 1 920 270 Z" fill="#0052FF"></path>
+      <circle cx="920" cy="250" r="20" fill="none" stroke="#000" stroke-width="3.4"></circle>
+      <circle data-dot cx="920" cy="250" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="queretaro" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="620" cy="190" r="30" fill="transparent"></circle>
+      <circle cx="620" cy="190" r="20" fill="#FF2E8B" stroke="#000" stroke-width="3.4"></circle>
+      <circle data-dot cx="620" cy="190" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="zeewolde" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="800" cy="455" r="30" fill="transparent"></circle>
+      <rect x="781" y="436" width="19" height="38" fill="#FF2E8B"></rect>
+      <rect x="800" y="436" width="19" height="38" fill="#0052FF"></rect>
+      <rect x="781" y="436" width="38" height="38" fill="none" stroke="#000" stroke-width="3.4"></rect>
+      <circle data-dot cx="800" cy="455" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="indiana" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="430" cy="455" r="30" fill="transparent"></circle>
+      <rect x="411" y="436" width="38" height="38" fill="#0052FF" stroke="#000" stroke-width="3.4"></rect>
+      <circle data-dot cx="430" cy="455" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="amazon" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="620" cy="350" r="30" fill="transparent"></circle>
+      <rect x="601" y="331" width="38" height="38" fill="#0052FF" stroke="#000" stroke-width="3.4"></rect>
+      <circle data-dot cx="620" cy="350" r="6" fill="#000" opacity="0"></circle>
+    </g>
+    <g data-node="chatgpt" onClick="{{ onNodeClick }}" style="cursor:grab; touch-action:none">
+      <circle cx="140" cy="340" r="30" fill="transparent"></circle>
+      <rect x="121" y="321" width="38" height="38" fill="#0052FF" stroke="#000" stroke-width="3.4"></rect>
+      <circle data-dot cx="140" cy="340" r="6" fill="#000" opacity="0"></circle>
+    </g>
+  </svg>
+    <div style="position:absolute; inset:0; pointer-events:none">
+    <div data-label-line="mason-ypsilanti" style="position:absolute; pointer-events:auto; left:19.941%; top:32.759%; transform:translate(-50%,-50%) rotate(34.62deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">NO VOTE EITHER WAY</div>
+    <div data-label-line="ypsilanti-permits" style="position:absolute; pointer-events:auto; left:32.722%; top:34.906%; transform:translate(-50%,-50%) rotate(-54.90deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">PAPERWORK TELLS</div>
+    <div data-label-line="permits-roanoke" style="position:absolute; pointer-events:auto; left:50.425%; top:13.215%; transform:translate(-50%,-50%) rotate(1.85deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">RECORDS, WILLING OR NOT</div>
+    <div data-label-line="roanoke-ekurhuleni" style="position:absolute; pointer-events:auto; left:75.877%; top:18.323%; transform:translate(-50%,-50%) rotate(8.13deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">ASKED · NEVER ASKED</div>
+    <div data-label-line="roanoke-chilejobs" style="position:absolute; pointer-events:auto; left:75.120%; top:39.917%; transform:translate(-50%,-50%) rotate(37.41deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">PROMISES</div>
+    <div data-label-line="chilejobs-chilegoogle" style="position:absolute; pointer-events:auto; left:83.725%; top:53.941%; transform:translate(-50%,-50%) rotate(25.46deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">SAME COUNTRY</div>
+    <div data-label-line="chilegoogle-queretaro" style="position:absolute; pointer-events:auto; left:62.711%; top:38.002%; transform:translate(-50%,-50%) rotate(11.31deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">WATER ALREADY SHORT</div>
+    <div data-label-line="queretaro-zeewolde" style="position:absolute; pointer-events:auto; left:57.071%; top:56.486%; transform:translate(-50%,-50%) rotate(55.81deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">COURT VS TOWN</div>
+    <div data-label-line="zeewolde-indiana" style="position:absolute; pointer-events:auto; left:48.810%; top:79.286%; transform:translate(-50%,-50%) rotate(0.00deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">IT JUST MOVES</div>
+    <div data-label-line="indiana-amazon" style="position:absolute; pointer-events:auto; left:38.229%; top:73.906%; transform:translate(-50%,-50%) rotate(-28.93deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">SAME COMPANY</div>
+    <div data-label-line="amazon-chatgpt" style="position:absolute; pointer-events:auto; left:23.283%; top:63.250%; transform:translate(-50%,-50%) rotate(1.19deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">NO NUMBERS GIVEN</div>
+    <div data-label-line="mason-permits" style="position:absolute; pointer-events:auto; left:24.501%; top:15.906%; transform:translate(-50%,-50%) rotate(-6.71deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">SHELL NAMES, FOUND</div>
+    <div data-label-line="ypsilanti-indiana" style="position:absolute; pointer-events:auto; left:31.672%; top:73.191%; transform:translate(-50%,-50%) rotate(67.17deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">EASIEST SITES</div>
+    <div data-label-line="permits-queretaro" style="position:absolute; pointer-events:auto; left:45.112%; top:29.188%; transform:translate(-50%,-50%) rotate(38.16deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">STILL BUILT</div>
+    <div data-label-line="amazon-zeewolde" style="position:absolute; pointer-events:auto; left:59.789%; top:74.116%; transform:translate(-50%,-50%) rotate(30.26deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">GREEN CLAIMS</div>
+    <div data-label-line="chilegoogle-ekurhuleni" style="position:absolute; pointer-events:auto; left:83.533%; top:35.007%; transform:translate(-50%,-50%) rotate(-26.57deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">PUBLIC, BUT UNREAD</div>
+    <div data-label-line="chatgpt-mason" style="position:absolute; pointer-events:auto; left:11.984%; top:41.071%; transform:translate(-50%,-50%) rotate(-90.00deg); white-space:nowrap; font-size:0.85cqw; letter-spacing:0.11cqw; font-weight:400; text-transform:uppercase; color:#555; background:#fff; padding:0.15em 0.35em; cursor:text">NO ONE WILL SAY WHO</div>
+    <div data-label-for="mason" style="position:absolute; pointer-events:auto; left:11.111%; top:15.714%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">No Name Given</div>
+    <div data-label-for="ypsilanti" style="position:absolute; pointer-events:auto; left:27.778%; top:53.036%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Next Door To The Bomb</div>
+    <div data-label-for="permits" style="position:absolute; pointer-events:auto; left:38.095%; top:20.000%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Found By A Permit</div>
+    <div data-label-for="roanoke" style="position:absolute; pointer-events:auto; left:62.698%; top:21.786%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Ordered To Release</div>
+    <div data-label-for="ekurhuleni" style="position:absolute; pointer-events:auto; left:90.476%; top:19.286%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Nobody Went Looking</div>
+    <div data-label-for="chilejobs" style="position:absolute; pointer-events:auto; left:89.683%; top:68.214%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Mostly Security And Cleaning</div>
+    <div data-label-for="chilegoogle" style="position:absolute; pointer-events:auto; left:73.016%; top:50.357%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Water For 80,000, On Paper</div>
+    <div data-label-for="queretaro" style="position:absolute; pointer-events:auto; left:49.206%; top:39.643%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">A Drought The Court Couldn't Stop</div>
+    <div data-label-for="zeewolde" style="position:absolute; pointer-events:auto; left:63.492%; top:86.964%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Twenty Jobs, Not Four Hundred</div>
+    <div data-label-for="indiana" style="position:absolute; pointer-events:auto; left:34.127%; top:86.964%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Farmland, Then Chips</div>
+    <div data-label-for="amazon" style="position:absolute; pointer-events:auto; left:49.206%; top:68.214%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">Three Years Of Silence</div>
+    <div data-label-for="chatgpt" style="position:absolute; pointer-events:auto; left:11.111%; top:66.429%; transform:translate(-50%,-50%); white-space:normal; width:13cqw; text-align:center; line-height:1.2; font-size:1.02cqw; letter-spacing:0.05cqw; font-weight:800; text-transform:uppercase; color:#000; background:#fff; padding:0.15em 0.35em; cursor:text">No One Will Say</div>
+    </div>
+  </div>
+  </div>
+
+  <p style="margin:0; padding:11px 28px 28px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; border-top:2px solid #000">{{ progressLabel }} of twelve read · click a line to travel · this site runs on the same kind of building it is about</p>
+
+  <div ref="{{ overlayRef }}" onScroll="{{ onOverlayScroll }}" style="position:fixed; inset:0; z-index:50; background:#fff; overflow-y:auto; overflow-x:hidden; opacity:0; transform:scale(1.03); pointer-events:none; transition:opacity .42s ease, transform .42s cubic-bezier(.2,.7,.2,1); -webkit-overflow-scrolling:touch">
+    <button onClick="{{ close }}" style="position:sticky; top:0; float:right; margin:18px 20px 0 0; z-index:5; font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; background:#000; color:#fff; border:3px solid #000; padding:10px 14px; cursor:pointer" style-hover="background:#FF2E8B; color:#000">close ✕</button>
+
+    <article data-story="mason" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">mason county · location</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">No Name Given <span style="color:#FF2E8B">(Mason County)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Unnamed buyers offered a Kentucky farming family $10M for their land, refusing to say who they were unless an NDA was signed first. The family said no; eighteen neighbors said yes. The public didn't learn a project existed until months later, at an unrelated meeting.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">What else has already been decided before anyone gets a vote?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="ypsilanti" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">no vote either way → next door to the bomb</button>
+        <button data-node="permits" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">shell names, found → found by a permit</button>
+        <button data-node="chatgpt" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">no one will say who → no one will say</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="chilejobs" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">chile jobs · location</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Mostly Security And Cleaning <span style="color:#FF2E8B">(Chile jobs)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Microsoft and Google promised thousands of jobs; permit filings showed mostly short-term security and cleaning work. Nobody lied outright — the infrastructure itself just doesn't need many people.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If a promise is technically true but practically empty, whose job is it to say so?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="chilegoogle" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">same country → water for 80,000, on paper</button>
+        <button data-node="roanoke" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">promises → ordered to release</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="chatgpt" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#0052FF">chatgpt energy · organisation</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">No One Will Say <span style="color:#0052FF">(ChatGPT energy)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Asked directly, Google, OpenAI, and Microsoft all declined to share real energy figures for a single AI query. Researchers estimate instead, using open-source proxies as substitutes.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If the industry itself can't agree on one number, what does it mean to “measure” AI's footprint at all?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="amazon" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">no numbers given → three years of silence</button>
+        <button data-node="mason" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">no one will say who → no name given</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="permits" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#000">generator permits · publication</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Found By A Permit <span style="color:#000">(Generator permits)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Every data center needs a backup generator permit — a record impossible to hide. Following that trail nationwide surfaced shell company names and a resident with years of noise-induced insomnia.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If a permit for a generator can unmask a company, what else is hiding behind paperwork nobody thinks to check?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="roanoke" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #000; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">records, willing or not → ordered to release</button>
+        <button data-node="ypsilanti" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #000; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">paperwork tells → next door to the bomb</button>
+        <button data-node="mason" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">shell names, found → no name given</button>
+        <button data-node="queretaro" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">still built → a drought the court couldn't stop</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="roanoke" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">roanoke · location</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Ordered To Release <span style="color:#FF2E8B">(Roanoke)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A judge ordered a Virginia water authority to release records tied to a possible Google data center. The authority may appeal instead of complying.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If disclosure requires a court order rather than a request, how much of what's technically public actually stays that way?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="permits" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #000; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">records, willing or not → found by a permit</button>
+        <button data-node="ekurhuleni" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">asked · never asked → nobody went looking</button>
+        <button data-node="chilejobs" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">promises → mostly security and cleaning</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="ypsilanti" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#000">ypsilanti · publication</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Next Door To The Bomb <span style="color:#000">(Ypsilanti)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A university's data center partnership with a nuclear weapons lab was announced as an “AI research facility,” sited in a poorer township next door. Because it's a university project, standard zoning review never applied.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">When the normal process for public input simply doesn't exist, who is anyone supposed to ask?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="mason" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">no vote either way → no name given</button>
+        <button data-node="permits" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #000; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">paperwork tells → found by a permit</button>
+        <button data-node="indiana" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">easiest sites → farmland, then chips</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="zeewolde" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#0052FF">zeewolde · both at once</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Twenty Jobs, Not Four Hundred <span style="color:#0052FF">(Zeewolde)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Meta's promised 410 jobs and “free heat” sustainability claim both fell apart under scrutiny. Local pressure triggered a nationwide moratorium — and the company relocated elsewhere.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If resistance in one place just moves the problem, what would it take to not need to win the same fight twice?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="queretaro" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">court vs town → a drought the court couldn't stop</button>
+        <button data-node="indiana" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">it just moves → farmland, then chips</button>
+        <button data-node="amazon" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF">green claims → three years of silence</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="chilegoogle" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">chile / google · both at once</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Water For 80,000, On Paper <span style="color:#FF2E8B">(Chile / Google)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A water-use figure was legally filed and technically public, but meant nothing until a resident group translated it into “the annual use of 80,000 people.”</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If information exists but nobody explains what it means, was it ever really disclosed?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="chilejobs" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">same country → mostly security and cleaning</button>
+        <button data-node="queretaro" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">water already short → a drought the court couldn't stop</button>
+        <button data-node="ekurhuleni" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">public, but unread → nobody went looking</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="amazon" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#0052FF">amazon water · organisation</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Three Years Of Silence <span style="color:#0052FF">(Amazon water)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A leaked 2022 memo shows Amazon weighing which headlines to avoid before disclosing its water use. A number finally came in 2025 — 2.5 billion gallons — wrapped in a comparison against a narrower competitor figure.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If the silence lasted three years, how would anyone know when the next one starts?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="indiana" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">same company → farmland, then chips</button>
+        <button data-node="chatgpt" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">no numbers given → no one will say</button>
+        <button data-node="zeewolde" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF">green claims → twenty jobs, not four hundred</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="indiana" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#0052FF">indiana / anthropic · organisation</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Farmland, Then Chips <span style="color:#0052FF">(Indiana / Anthropic)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">Amazon's largest AI data center — 30 buildings, half a million chips — sits on land that was farmland a year earlier, running the systems behind Anthropic's models. Its real water use isn't independently confirmed.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">How close does something have to be before “unconfirmed” stops being acceptable?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="amazon" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">same company → three years of silence</button>
+        <button data-node="zeewolde" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">it just moves → twenty jobs, not four hundred</button>
+        <button data-node="ypsilanti" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">easiest sites → next door to the bomb</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="queretaro" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">querétaro · location</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">A Drought The Court Couldn't Stop <span style="color:#FF2E8B">(Querétaro)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A drought-stricken region with under-served water access is absorbing $10B in data center investment. Even a Supreme Court challenge hasn't slowed it.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">When legal escalation stops working, what's actually left for a community to do?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="zeewolde" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #0052FF; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#0052FF; color:#fff">court vs town → twenty jobs, not four hundred</button>
+        <button data-node="chilegoogle" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">water already short → water for 80,000, on paper</button>
+        <button data-node="permits" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #E8FF00; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#E8FF00">still built → found by a permit</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+
+    <article data-story="ekurhuleni" style="display:none; max-width:820px; margin:0 auto; padding:70px 26px 140px">
+      <p style="margin:0 0 14px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:#FF2E8B">ekurhuleni · location</p>
+      <h2 style="margin:0 0 34px; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); font-size:clamp(28px,5vw,48px); line-height:1.06">Nobody Went Looking <span style="color:#FF2E8B">(Ekurhuleni)</span></h2>
+      <div style="height:210px; border:3px solid #000; background:repeating-linear-gradient(45deg,#fff,#fff 9px,#f2f2f2 9px,#f2f2f2 18px); display:flex; align-items:center; justify-content:center; margin:0 0 46px">
+        <span style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:7px 11px">illustration — to come</span>
+      </div>
+      <p style="margin:0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; text-wrap:pretty">A data center opened near Johannesburg in a water- and power-strained region. No leak, no lawsuit, no investigation — most residents never learned it was there.</p>
+      <p style="margin:34px 0 0; font-size:clamp(19px,2.6vw,26px); line-height:1.72; font-weight:700; text-wrap:pretty">If nothing ever gets uncovered because no one ever looks, is that still a secret?</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin:64px 0 0; padding-top:26px; border-top:3px solid #000">
+        <span style="font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:700; padding-top:12px">follow a line →</span>
+        <button data-node="roanoke" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">asked · never asked → ordered to release</button>
+        <button data-node="chilegoogle" onClick="{{ onNodeClick }}" style="font-family:var(--tm-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; color:#000; border:3px solid #FF2E8B; padding:11px 14px; cursor:pointer; text-align:left" style-hover="background:#FF2E8B">public, but unread → water for 80,000, on paper</button>
+      </div>
+      <p style="margin:26px 0 0; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; opacity:.55">go deeper — source trail pending</p>
+    </article>
+  </div>
+
+  <div ref="{{ gateRef }}" style="position:fixed; inset:0; z-index:80; background:#fff; display:flex; flex-direction:column; justify-content:space-between; transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:26px 28px; border-bottom:4px solid #000">
+      <p style="margin:0; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700">an art piece about what AI drinks</p>
+      <p style="margin:0; display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; background:#E8FF00; border:2px solid #000; padding:6px 10px"><span style="display:inline-block; width:8px; height:8px; background:#000; animation:tm-pulse 1.8s infinite"></span>work in progress</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:34px; align-items:flex-start; padding:20px 28px; max-width:1100px">
+      <h1 style="margin:0; font-family:var(--tm-display); font-style:var(--tm-dstyle); font-weight:var(--tm-dweight); letter-spacing:var(--tm-dtrack); text-transform:var(--tm-dcase); font-size:clamp(52px,13vw,168px); line-height:.86">Thirsty<br />Machines</h1>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:26px">
+        <button onClick="{{ enter }}" style="font-family:var(--tm-body); font-size:15px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; background:#FF2E8B; color:#000; border:4px solid #000; padding:18px 40px; cursor:pointer" style-hover="background:#000; color:#FF2E8B">enter</button>
+        <p style="margin:0; max-width:420px; font-size:13px; line-height:1.65; letter-spacing:.02em; text-transform:uppercase; font-weight:600">Twelve stories, wired to each other. No order, no numbers. Follow a line and see where it goes.</p>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:18px 28px; border-top:2px solid #000">
+      <span style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; margin-right:6px">typeface —</span>
+      <button data-font="document" onClick="{{ onFontClick }}" style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:#fff; border:3px solid #000; padding:10px 13px; cursor:pointer" style-hover="background:#E8FF00">document / plex mono</button>
+      <button data-font="poster" onClick="{{ onFontClick }}" style="font-family:Anton, Impact, sans-serif; font-size:13px; letter-spacing:.06em; text-transform:uppercase; background:#fff; border:3px solid #000; padding:10px 13px; cursor:pointer" style-hover="background:#E8FF00">poster / anton</button>
+      <button data-font="grotesk" onClick="{{ onFontClick }}" style="font-family:Archivo, sans-serif; font-size:13px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; background:#fff; border:3px solid #000; padding:10px 13px; cursor:pointer" style-hover="background:#E8FF00">grotesk / archivo</button>
+      <button data-font="editorial" onClick="{{ onFontClick }}" style="font-family:Fraunces, Georgia, serif; font-style:italic; font-weight:700; font-size:14px; background:#fff; border:3px solid #000; padding:10px 13px; cursor:pointer" style-hover="background:#E8FF00">editorial / fraunces</button>
+      <span data-font-current style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; background:#000; color:#fff; padding:8px 11px">document</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;fontSet&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;document&quot;,&quot;poster&quot;,&quot;grotesk&quot;,&quot;editorial&quot;],&quot;default&quot;:&quot;document&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Type&quot;},&quot;revealAll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Redaction&quot;},&quot;triggerPoint&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:62,&quot;min&quot;:20,&quot;max&quot;:95,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Redaction&quot;}}">
+const FONTS = {
+  document: { display: "'IBM Plex Mono', ui-monospace, monospace", body: "'IBM Plex Mono', ui-monospace, monospace", style: 'normal', weight: '700', track: '-.03em', dcase: 'uppercase' },
+  poster: { display: "Anton, Impact, sans-serif", body: "Archivo, Helvetica, sans-serif", style: 'normal', weight: '400', track: '.005em', dcase: 'uppercase' },
+  grotesk: { display: "Archivo, Helvetica, sans-serif", body: "Archivo, Helvetica, sans-serif", style: 'normal', weight: '800', track: '-.025em', dcase: 'uppercase' },
+  editorial: { display: "Fraunces, Georgia, serif", body: "'Space Grotesk', Helvetica, sans-serif", style: 'italic', weight: '700', track: '-.02em', dcase: 'none' }
+};
+
+class Component extends DCLogic {
+  state = { entered: false, open: null, visited: [], font: 'document' };
+  rootRef = React.createRef();
+  overlayRef = React.createRef();
+  gateRef = React.createRef();
+
+  componentDidMount() {
+    this.onKey = (e) => {
+      if (e.key === 'Escape' && this.state.open) this.close();
+      else if ((e.key === 'Enter' || e.key === ' ') && !this.state.entered) this.enter();
+    };
+    window.addEventListener('keydown', this.onKey);
+    this._lastOpen = this.state.open;
+    this.syncDom(true);
+    this.initDrag();
+  }
+
+  // --- draggable nodes -------------------------------------------------
+  initDrag() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const svg = root.querySelector('svg[viewBox^="0 0 1260"]');
+    if (!svg) return;
+    this.svg = svg;
+    this.W = 1260; this.H = 560;
+    this.pos = {}; this.base = {}; this.titleRel = {}; this.reason = {};
+
+    root.querySelectorAll('g[data-node]').forEach(g => {
+      const hit = g.querySelector('circle');
+      const id = g.dataset.node;
+      this.base[id] = [parseFloat(hit.getAttribute('cx')), parseFloat(hit.getAttribute('cy'))];
+      this.pos[id] = this.base[id].slice();
+      const lab = root.querySelector(`[data-label-for="${id}"]`);
+      if (lab) this.titleRel[id] = [
+        parseFloat(lab.style.left) / 100 * this.W - this.base[id][0],
+        parseFloat(lab.style.top) / 100 * this.H - this.base[id][1]
+      ];
+      g.addEventListener('pointerdown', (e) => this.startDrag(e, id));
+    });
+
+    root.querySelectorAll('[data-label-line]').forEach(lab => {
+      const [a, b] = lab.dataset.labelLine.split('-');
+      const [x1, y1] = this.base[a], [x2, y2] = this.base[b];
+      const dx = x2 - x1, dy = y2 - y1, l2 = dx * dx + dy * dy, len = Math.sqrt(l2);
+      const cx = parseFloat(lab.style.left) / 100 * this.W, cy = parseFloat(lab.style.top) / 100 * this.H;
+      let px = -dy / len, py = dx / len; if (py > 0) { px = -px; py = -py; }
+      this.reason[lab.dataset.labelLine] = {
+        t: ((cx - x1) * dx + (cy - y1) * dy) / l2,
+        off: (cx - x1) * px + (cy - y1) * py
+      };
+    });
+
+    try {
+      const saved = JSON.parse(localStorage.getItem('tm-node-pos') || 'null');
+      if (saved) Object.keys(saved).forEach(id => { if (this.pos[id]) { this.pos[id] = saved[id]; this.paint(id); } });
+    } catch (err) {}
+  }
+
+  startDrag(e, id) {
+    if (e.button !== 0) return;
+    const scale = this.svg.getBoundingClientRect().width / this.W;
+    const start = [e.clientX, e.clientY], from = this.pos[id].slice();
+    this._moved = 0;
+    const move = (ev) => {
+      const dx = (ev.clientX - start[0]) / scale, dy = (ev.clientY - start[1]) / scale;
+      this._moved = Math.max(this._moved, Math.abs(ev.clientX - start[0]) + Math.abs(ev.clientY - start[1]));
+      this.pos[id] = [from[0] + dx, from[1] + dy];
+      this.paint(id);
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      if (this._moved > 4) {
+        this._skipClick = true;
+        try { localStorage.setItem('tm-node-pos', JSON.stringify(this.pos)); } catch (err) {}
+      }
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  }
+
+  paint(id) {
+    const root = this.rootRef.current;
+    const [bx, by] = this.base[id], [x, y] = this.pos[id];
+    const g = root.querySelector(`g[data-node="${id}"]`);
+    if (g) g.setAttribute('transform', `translate(${x - bx} ${y - by})`);
+    const lab = root.querySelector(`[data-label-for="${id}"]`);
+    if (lab && this.titleRel[id]) {
+      lab.style.left = ((x + this.titleRel[id][0]) / this.W * 100) + '%';
+      lab.style.top = ((y + this.titleRel[id][1]) / this.H * 100) + '%';
+    }
+    root.querySelectorAll(`g[data-a="${id}"], g[data-b="${id}"]`).forEach(eg => {
+      const a = eg.dataset.a, b = eg.dataset.b;
+      const [x1, y1] = this.pos[a], [x2, y2] = this.pos[b];
+      eg.querySelectorAll('line').forEach(ln => {
+        ln.setAttribute('x1', x1); ln.setAttribute('y1', y1);
+        ln.setAttribute('x2', x2); ln.setAttribute('y2', y2);
+      });
+      const lab2 = root.querySelector(`[data-label-line="${a}-${b}"]`);
+      const geo = this.reason[`${a}-${b}`];
+      if (!lab2 || !geo) return;
+      const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy) || 1;
+      let px = -dy / len, py = dx / len; if (py > 0) { px = -px; py = -py; }
+      const cx = x1 + dx * geo.t + px * geo.off, cy = y1 + dy * geo.t + py * geo.off;
+      let ang = Math.atan2(dy, dx) * 180 / Math.PI;
+      if (ang > 90) ang -= 180; else if (ang < -90) ang += 180;
+      lab2.style.left = (cx / this.W * 100) + '%';
+      lab2.style.top = (cy / this.H * 100) + '%';
+      lab2.style.transform = `translate(-50%,-50%) rotate(${ang.toFixed(2)}deg)`;
+    });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKey);
+    if (this.prevBodyOverflow !== undefined) document.body.style.overflow = this.prevBodyOverflow;
+  }
+  componentDidUpdate() {
+    const changed = this._lastOpen !== this.state.open;
+    this._lastOpen = this.state.open;
+    this.syncDom(changed);
+  }
+
+  syncDom(changed) {
+    const root = this.rootRef.current, ov = this.overlayRef.current, gate = this.gateRef.current;
+    if (!root) return;
+    const { open, visited, entered } = this.state;
+
+    const f = FONTS[this.props.fontSet || this.state.font] || FONTS.document;
+    root.style.setProperty('--tm-display', f.display);
+    root.style.setProperty('--tm-body', f.body);
+    root.style.setProperty('--tm-dstyle', f.style);
+    root.style.setProperty('--tm-dweight', f.weight);
+    root.style.setProperty('--tm-dtrack', f.track);
+    root.style.setProperty('--tm-dcase', f.dcase);
+    const badge = root.querySelector('[data-font-current]');
+    if (badge) badge.textContent = this.props.fontSet || this.state.font;
+
+    if (gate) {
+      gate.style.opacity = entered ? '0' : '1';
+      gate.style.transform = entered ? 'scale(1.06)' : 'scale(1)';
+      gate.style.pointerEvents = entered ? 'none' : 'auto';
+    }
+
+    root.querySelectorAll('[data-story]').forEach((a) => {
+      a.style.display = a.dataset.story === open ? 'block' : 'none';
+    });
+    if (ov) {
+      ov.style.opacity = open ? '1' : '0';
+      ov.style.transform = open ? 'scale(1)' : 'scale(1.03)';
+      ov.style.pointerEvents = open ? 'auto' : 'none';
+    }
+    if (this.prevBodyOverflow === undefined) this.prevBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = (open || !entered) ? 'hidden' : this.prevBodyOverflow;
+
+    root.querySelectorAll('[data-node]').forEach((g) => {
+      const on = visited.indexOf(g.dataset.node) !== -1;
+      g.querySelectorAll('[data-dot]').forEach((el) => { el.setAttribute('opacity', on ? '1' : '0'); });
+    });
+
+    if (open && changed) {
+      if (ov) ov.scrollTop = 0;
+      this.resetRedaction();
+      requestAnimationFrame(() => this.updateRedaction());
+    }
+  }
+
+  resetRedaction() {
+    const ov = this.overlayRef.current;
+    if (ov) ov.querySelectorAll('[data-r]').forEach((s) => { s.style.backgroundSize = '0% 100%'; });
+  }
+
+  updateRedaction() {
+    const ov = this.overlayRef.current;
+    if (!ov) return;
+    const reveal = this.props.revealAll === true;
+    const t = (this.props.triggerPoint ?? 62) / 100;
+    const box = ov.getBoundingClientRect();
+    const line = box.top + box.height * t;
+    ov.querySelectorAll('[data-r]').forEach((s) => {
+      if (!s.offsetParent) return;
+      const on = reveal ? false : s.getBoundingClientRect().top < line;
+      s.style.backgroundSize = on ? '100% 100%' : '0% 100%';
+    });
+  }
+
+  onOverlayScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => { this.raf = null; this.updateRedaction(); });
+  };
+
+  enter = () => { this.setState({ entered: true }); };
+
+  onFontClick = (e) => { this.setState({ font: e.currentTarget.dataset.font }); };
+
+  openStory(id) {
+    if (!id) return;
+    this.setState((s) => ({
+      entered: true,
+      open: id,
+      visited: s.visited.indexOf(id) === -1 ? s.visited.concat(id) : s.visited
+    }));
+  }
+
+  onNodeClick = (e) => {
+    if (this._skipClick) { this._skipClick = false; return; }
+    this.openStory(e.currentTarget.dataset.node);
+  };
+
+  onLineClick = (e) => {
+    const { a, b } = e.currentTarget.dataset;
+    this.openStory(this.state.open === b ? a : b);
+  };
+
+  close = () => { this.setState({ open: null }); };
+
+  renderVals() {
+    const n = this.state.visited.length;
+    const words = ['none', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+    return {
+      rootRef: this.rootRef,
+      overlayRef: this.overlayRef,
+      gateRef: this.gateRef,
+      onNodeClick: this.onNodeClick,
+      onLineClick: this.onLineClick,
+      onOverlayScroll: this.onOverlayScroll,
+      onFontClick: this.onFontClick,
+      enter: this.enter,
+      close: this.close,
+      progressLabel: words[n] || String(n)
+    };
+  }
+}
+</script>
+</body>
+</html>
